@@ -1,9 +1,11 @@
+package src;
+
 public class App{
     String username;
     float appVersion;
     public App (String name, float version) {
         if (version < 0) {
-            throw  new IllegalArgumentException("Version can't be negative!");
+            throw  new IllegalArgumentException("Version can't be negative though!");
         }
         username = name;
         appVersion = version;

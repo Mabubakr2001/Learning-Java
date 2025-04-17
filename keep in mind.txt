@@ -1,0 +1,58 @@
+1- every line of code that runs in Java must be written inside a class.
+
+2- The name of the java file must match the class name (case-sensitive). When saving the file, save it using the class name and add ".java" to the end of the filename.
+
+3- Every Java program has a class name which must match the filename, and the class that starts the program (typically the one containing the main() method) is where execution begins — it's the entry point of the program.
+
+4- System → A built-in class in Java (java.lang.System).
+
+5- out → A static field inside System (of type PrintStream).
+
+6- final in Java acts as of const in JavaScript (for primitives).
+
+7- more data types than JavaScript -> byte, short, long, double.
+
+8- just to clear my mind, always use int for numbers and double for floating points.
+
+9- normally, float is treated as double, and long is treated as int, so i would have to specify the type right after the value, like this "23.34f" and "12234252132L", to ignore compilation errors. Also when using double i must specify the type.
+
+10 - use single quotes for char. Keep in mind that strings in Java are objects.
+
+11- in Java, when declaring the reference type variables (non-primitives), the data type should start with a capital letter.
+
+12- when using primitive type in Java, there are two operations called Widening Casting, and Narrowing Casting. In widening casting we convert a smaller type to a larger type size, unlike the narrowing casting where we convert a larger type size to a smaller type size. Widening casting could be done automatically whereas narrowing we would have to place the old type in parentheses in front of the value.
+
+13- .length in Java is a method (for strings) not a property, and a property (for arrays).
+
+14- when using the ternary operator in Java it's a good practice to put the condition between parentheses.
+
+15- when declaring an array in Java, i must specify that it's an array by entering the data type this way "String[] or for instance int[]", and also i must put the items inside curly braces.
+
+16- there is a distinct difference between forEach in JavaScript and its equivalent in Java which is done this way for instance "for (String item : cars){}", and it's pretty good cuz it allows using break and continue inside it, unlike the JS one.
+
+17- break and continue in Java are more commonly used, unlike JavaScript.
+
+18- in Java i call the nested arrays as multidimensional arrays (2D arrays), and they have to be declared like this for instance "int[][] myNumbers = {{}, {}}".
+
+19- unlike JavaScript, in Java i can instantiate an object of the same class inside that class itself cuz everthing must be done inside this class (it's like a well-organized boarding school).
+
+20- the identifier of the constructor method in Java is the name of the class itself, unlike JavaScript where i call it just constructor.
+
+21- in Java we organize our code into packages (folders) and classes (files).
+
+22- if we do not explicitly type an access modifier (public, private) when declaring a variable in the class, this variable is a Package-Private variable, which means that we can access this variable inside any class (file) in the same package (folder). Public (accessible from anywhere), private (accessible only within its class).
+
+23- In Java, I can declare multiple methods with the same name as long as they have different parameter types, counts, or orders. This is called method overloading. Unlike JavaScript, where I can't define two functions with the same name, Java allows this as a way to handle different inputs. In some cases, I might want a method to perform the same task but with more parameters or different data types. Instead of creating a separate method, I can overload the same method — for example: int myMethod(int x) and float myMethod(float x).
+
+24- when i don't explicitly define a constructor method inside the class, Java gives me a default no-argument constructor, it uses super keyword behind the scenes to inherit the constructor of the built-in Object class, unlike JavaScript, where i need to consider defining the constructor method manually even with no arguments.
+
+25- in Java there are the access modifiers like public, private, protected, and Default (Package Private). There are Non-Access modifiers also, like static, final, abstract, synchronized, volatile, transient, native, and strictfp
+
+26- what makes Java so powerful and called WORA (Write Once, Run Anywhere) is the power of the JVM (Java Virtual Machine), that makes Java run on almost any OS. Unlike C++, where we have to install its compiler on each and every OS to be able to run the program and execute the code. In Java, this is not a problem thanks to the JVM, which is commonly available or easily installable on most OS platforms. When we run our code using the Java compiler (javac) the bytecode (intermediate machine code version) gets generated, so we can take this bytecode and travel to any OS, no pun intended, and once we want to execute the program, we call JVM (java Main), and boom, the power of Java comes into play, the JVM gives that bytecode to its class loader, this class loader loads the bytecode into the OS memory, then the JVM bytecode verifier checks the safety of that bytecode, and lastly, the JVM interpreter simply interprets that bytecode line by line by giving each and every line to the JIT (Just-In-Time Compiler) that executes this line and transform it into machine code, and once finished interpreting, boom the computer says "Here is your program buddy!" So Java is a mix between a compiled and an interpreted language. It compiles the source code once (in one shot) into bytecode, and then the JVM interprets that bytecode line by line at runtime.
+
+27- Java running flow = javac → bytecode → JVM → class loader → verifier → interpreter → JIT → machine code.
+
+28- I must get familiar with the standard Java built-in packages that the Java API provides like java.util, java.time, java.nio, java.concurrent. These packages are used to group related classes that are provided with their attributes and methods to make the development process easier. The JDE (Java Development Environment) has multiple packages (several classes) and  multiple classes that can be imported individually. Like for example, we can import a whole package (java.util) or we can import a single class from this package (java.util.Scanner).
+
+
+29- If am compiling the code from the root directory, then it's fine, the compiler won't yell at me because it knows where to find any other classes that main() uses, i just type "javac Main", but if i decided to organize my project structure like for instance by creating a "src" folder (package) and put all the classes inside it, then i need to let the compiler know where to find these classes that need to be compiled because the compiler now only knows where to find its entry point which is main(), but if main() uses any other classes now, the compiler will yell at me telling that it doesn't know where to find this other class, so i need to explicitly type each and every class, like typing the Wildcard "javac src/*.java", and then run "java src.Main" by mentioning the package name beforehand. Or if i want to make things more immaculate, i could choose to put the compiled code (bytecode) into a separate folder like (out) by saying "javac -d out src/*.java" instead, and then run "java -cp out src.Main".

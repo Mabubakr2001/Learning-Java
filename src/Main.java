@@ -1,3 +1,5 @@
+package src;
+
 import java.util.Scanner;
 
 public class Main {
@@ -14,7 +16,7 @@ public class Main {
             num1 = Integer.parseInt(myObj.nextLine());
             System.out.println("Enter the second number: ");
             num2 = Integer.parseInt(myObj.nextLine());
-            // instantiates the number format exeption error object and throw it.
+            // instantiates the number format exception error object and throw it.
         } catch (NumberFormatException exception) {
             System.out.println("Invalid number input! " + exception.getMessage());
             return;
