@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        App myApp = new App("Calculation App", 1.0f);
+        App myApp = new App("Calculation App", 1.0f); // defining the blueprint
         // Scanning all the system inputs that come from the user.
         Scanner myObj = new Scanner(System.in);
         System.out.println("Enter username: ");
