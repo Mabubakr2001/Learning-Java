@@ -1,7 +1,7 @@
 package src;
 
 public class CalculationApp implements App{
-    float appVersion;
+    private float appVersion;
 
     private enum Operation {
         ADDITION {
@@ -40,6 +40,14 @@ public class CalculationApp implements App{
             throw  new IllegalArgumentException("Version can't be negative though!");
         }
         appVersion = version;
+    }
+
+    public float getAppVersion() {
+        return appVersion;
+    }
+
+    public void setAppVersion(float newVersion) {
+        appVersion = newVersion;
     }
 
     public void greeting(String name) {
