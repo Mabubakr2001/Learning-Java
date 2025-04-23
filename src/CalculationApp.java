@@ -1,5 +1,6 @@
 package src;
 
+// enforcing the Calculation App to implement everything that App has
 public class CalculationApp implements App{
     private float appVersion;
 
