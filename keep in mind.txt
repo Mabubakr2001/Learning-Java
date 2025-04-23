@@ -14,7 +14,7 @@
 
 8- just to clear my mind, always use int for numbers and double for floating points.
 
-9- normally, float is treated as double, and long is treated as int, so i would have to specify the type right after the value, like this "23.34f" and "12234252132L", to ignore compilation errors. Also when using double i must specify the type.
+9- normally, float is treated as double, and long is treated as int, so i would have to specify the type right after the value, like this "23.34f" and "12234252132L", to ignore compilation errors.
 
 10 - use single quotes for char. Keep in mind that strings in Java are objects.
 
@@ -61,6 +61,8 @@
 
 31- There are interfaces in Java, These interfaces are basically contracts that define what a class can do. For instance, we can define an (Animal) interface "public interface Animal", the animal can eat, and sleep, so we define two methods inside, these methods are implicitly public and abstract, which means that any class (Dog) from any where can inherit this method and override it (saying how it eats). The interfaces can have default and static methods too,
 
-32- Only one public class or interface or enum per .java file, and the file must be named after it.
+32- Only one public class or interface or enum per .java file, and the file must be named after it. We can have multiple non-public classes/interfaces/enums in a file, but only one public, and the filename must match that one.
 
-33- Unlike JavaScript where we can easily store multiple objects inside a plain array, in Java we can't do that unless we use something called ArrayList from the Java Collections Framework, which is a special class that gives us the flexibility to add or remove classes, and it will resize and scale dynamically, because if we chose the plain array to store objects, then we would have to manage resizing manually which is painful because in Java, plain arrays are fixed in size, so we do something like this "private ArrayList<User> users = new ArrayList<>()", then we can use methods like add, remove, or size.
+33- Unlike JavaScript where we can easily store multiple objects inside a plain array, in Java we can't do that unless we use something called ArrayList from the Java Collections Framework, and it's a part from the (java.util) package which is a special class that gives us the flexibility to add or remove classes, and it will resize and scale dynamically, because if we chose the plain array to store objects, then we would have to manage resizing manually which is painful because in Java, plain arrays are fixed in size, so we do something like this "private ArrayList<User> users = new ArrayList<>()", then we can use methods like add, remove, or size.
+
+34- The difference between overriding and overloading in Java is that overriding is all about changing the implementation of a method that is inherited from a superclass to a subclass, a boy that wanted to use his dad's run() method but not the same way as his dad used to run, but on the other hand, we are applying the overloading concept when we implement different methods with the same name inside a class, a boy that changed his mind after creating his own working() method, so he implements it again cuz he changed his way of working.
