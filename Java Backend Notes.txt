@@ -1,0 +1,44 @@
+1- Maven is a Java build tool used to compile, test, and package the code. It also manages dependencies and automatically downloads all necessary libraries from a central repository (equivalent to the npm package manager in Frontend).
+
+2- Maven is like Vite in the frontend world. When choosing Maven with Spring Initializer (similar to npm create vite@latest), the Initializer uses Spring Boot to quickly scaffold the project structure, allowing developers to focus on writing business logic rather than setup.
+
+3- Without Spring Initializer, we would need to configure Spring manually — setting up XML config files, specifying dependencies ourselves, and handling server setup — much like using plain JavaScript and manually configuring Webpack or Babel.
+
+4- After using Spring Initializer, one of the files generated is pom.xml (POM = Project Object Model). This file is the equivalent of package.json in frontend projects. It defines the project structure, manages dependencies, includes metadata, and lists plugins used by Maven.
+
+5- Just like we can configure the name of the production folder in frontend projects (e.g., dist/ or build/) to hold all bundled and optimized code, in Java backend development we can choose between generating a .jar (Java ARchive) or a .war (Web Application ARchive) file when initializing our project with Spring Initializr. After compiling the .java source files into .class files, the build tool (like Maven or Gradle) packages these compiled classes — along with resources and dependencies — into a .jar or .war file. These files are placed inside the target/ directory by default (for Maven), and this happens during the build phase, not during initialization.
+The choice between .jar and .war is defined in the pom.xml via the <packaging> tag and determines how the application will be deployed.
+
+6- after setting up the Java project via the Spring Initializer, if we chose the .jar packaging, so Spring Boot auto-configures Tomcat and runs it as part of our application (via spring-boot-starter-web). But if we chose to use .war packaging, then we need to deploy our packaged app to a standalone Tomcat server (like copying the .war file to the webapps/ folder of a Tomcat installation).
+
+
+7- Tomcat is a lightweight java web server (specifically a Servlet container), it handles HTTP requests and responses and runs our backend java code, It's actually a real server for APIs and it can be used for production unlike the dev server in the Frontend world that is not for production. Unlike the dev server that shows the UI, Tomcat serves APIs and handles logic. It's like Express.js in Node or the Vite dev server for frontend.
+
+8- We need Tomcat because when we write a backend with Java (e.g., a REST API), that code needs to be hosted on a web server so it can listen for HTTP requests (like GET /users), process those requests (e.g., talk to the database), and return a response (e.g., a list of users in JSON). So Tomcat acts as that server. It receives requests and passes them to your Java code.
+
+9- Without using Spring Boot, just traditional Java, we would have to write our Java code as a Servlet, and package our project into a .war file, then deploy it to a standalone Tomcat server that we've installed manually.
+
+10- A Servlet is a Java class that handles HTTP requests and generates responses — usually HTML, JSON, or other web data. It runs inside a Servlet container (like Tomcat). Think of a Servlet as a Java version of what you'd write in Express.js like:
+
+	app.get("/hello", (req, res) => {
+   	    res.send("Hello World");
+	});
+
+11- A normal Java class is just a regular class we write for logic, utilities, data models, etc. It doesn’t depend on any web framework or server. A Servlet class on the other hand, is a special type of Java class used in web development to handle HTTP requests (like GET and POST). It extends HttpServlet, and it runs inside a web server like Tomcat.
+
+12- A controller is a Java class that handles incoming HTTP requests from the client and sends back responses. It acts as the bridge between the client and your backend logic or database. We define a controller by typing the controller annotation like the @RestController.
+
+13- We have mapping annotations in Spring Boot also, like @GetMapping, @PostMapping, @PutMapping, and @DeleteMapping. Each of these annotations maps an HTTP request (GET, POST, PUT, DELETE) to the Java method defined below it. This allows the method to handle that type of HTTP request and return a response — typically as JSON in a REST API.
+
+Abstract Notes and Concepts:
+
+1- REST is an architectural style for designing networked applications. It defines a set of rules and conventions for building and interacting with web services over HTTP. In REST, everything is a resource (like /users or /products), and each resource is accessed by the URL that locates this resource from the server, that's why it's called Uniform Resource Locater.
+
+2- REST stands for (Representational State Transfer). When a client (like a browser or frontend app) interacts with a resource (like a user or a product), it doesn’t get the actual resource from the server — it gets a representation of it. That representation is usually JSON, XML, or HTML, and it describes the current state of the resource. So the client transfers the "representation" of a resource's current "state" over HTTP.
+
+3- A REST API is a practical implementation of a web service that follows REST principles. It provides endpoints (URLs) that clients (like frontend apps or mobile apps) can interact with using HTTP methods (GET, POST, PUT, DELETE) to perform actions on resources.
+
+4- An endpoint is a URL path that the backend exposes so that clients (like frontend apps or mobile apps) can send HTTP requests to this endpoint and receive responses. It gives us access to that resource, using HTTP methods (GET, POST, etc.). In Spring Boot, endpoints are defined using annotations like @GetMapping, @PostMapping, etc., inside controller classes. When the app runs on Tomcat (default at localhost:8080), these endpoints become accessible via browser or HTTP clients (e.g., GET http://localhost:8080/hello). Endpoints must be explicitly mapped in a controller using annotations like @GetMapping("/") to avoid that error.
+
+5- We can call "http://localhost:8080/products" an endpoint, because it points to a resource (the products collection).
+"http://localhost:8080" is also technically an endpoint (it's the root endpoint), but unless the backend defines a controller for /, it won’t return a resource — and we'll get the default Whitelabel Error Page from Spring Boot.
