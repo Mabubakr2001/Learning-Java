@@ -42,3 +42,7 @@ Abstract Notes and Concepts:
 
 5- We can call "http://localhost:8080/products" an endpoint, because it points to a resource (the products collection).
 "http://localhost:8080" is also technically an endpoint (it's the root endpoint), but unless the backend defines a controller for /, it won’t return a resource — and we'll get the default Whitelabel Error Page from Spring Boot.
+
+6- The most popular logging frameworks for debugging and monitoring my Java backend projects are SLF4J, Log4j, and Logback. We need these logging frameworks to track behavior, catch errors, and maintain visibility into our application — especially in production where println() just doesn’t cut it. Because in production, we don’t care about debug prints — but we need errors, and println() can't filter "debug" vs "critical error" logs. Also println() is synchronous which might blocks our app, while logging frameworks on the other hand use async logging (non-blocking).
+
+7- Postman is a powerful tool used in backend development to test, debug, and document REST APIs. It allows developers to send HTTP requests (GET, POST, PUT, DELETE, etc.) to backend endpoints and view responses directly, without needing a frontend client. Postman simplifies verifying API functionality, troubleshooting issues, automating tests, and sharing API collections with the team, making backend development and collaboration faster and more efficient.
