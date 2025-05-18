@@ -16,19 +16,21 @@ The choice between .jar and .war is defined in the pom.xml via the <packaging> t
 
 8- We need Tomcat because when we write a backend with Java (e.g., a REST API), that code needs to be hosted on a web server so it can listen for HTTP requests (like GET /users), process those requests (e.g., talk to the database), and return a response (e.g., a list of users in JSON). So Tomcat acts as that server. It receives requests and passes them to your Java code.
 
-9- Without using Spring Boot, just traditional Java, we would have to write our Java code as a Servlet, and package our project into a .war file, then deploy it to a standalone Tomcat server that we've installed manually.
+9- Spring Boot is a frameword built on top of Traditional Spring and makes backend development faster and simpler. It uses auto-configuration, convention over configuration, and starter dependencies to eliminate boilerplate. It packages the app into a .jar that includes an embedded Tomcat server, so you can just run your app directly without needing to install Tomcat manually.
 
-10- A Servlet is a Java class that handles HTTP requests and generates responses — usually HTML, JSON, or other web data. It runs inside a Servlet container (like Tomcat). Think of a Servlet as a Java version of what you'd write in Express.js like:
+10- Before Spring Boot, Java developers used Traditional Spring, which required a lot of manual configuration. You had to write long XML files to wire components, define beans, manage dependencies manually, and deploy apps by copying .war files into a standalone Tomcat server. It gave fine-grained control but slowed development down with boilerplate setup.
+
+11- A Servlet is a Java class that handles HTTP requests and generates responses — usually HTML, JSON, or other web data. It runs inside a Servlet container (like Tomcat). Think of a Servlet as a Java version of what you'd write in Express.js like:
 
 	app.get("/hello", (req, res) => {
    	    res.send("Hello World");
 	});
 
-11- A normal Java class is just a regular class we write for logic, utilities, data models, etc. It doesn’t depend on any web framework or server. A Servlet class on the other hand, is a special type of Java class used in web development to handle HTTP requests (like GET and POST). It extends HttpServlet, and it runs inside a web server like Tomcat.
+12- A normal Java class is just a regular class we write for logic, utilities, data models, etc. It doesn’t depend on any web framework or server. A Servlet class on the other hand, is a special type of Java class used in web development to handle HTTP requests (like GET and POST). It extends HttpServlet, and it runs inside a web server like Tomcat.
 
-12- A controller is a Java class that handles incoming HTTP requests from the client and sends back responses. It acts as the bridge between the client and your backend logic or database. We define a controller by typing the controller annotation like the @RestController.
+13- A controller is a Java class that handles incoming HTTP requests from the client and sends back responses. It acts as the bridge between the client and your backend logic or database. We define a controller by typing the controller annotation like the @RestController.
 
-13- We have mapping annotations in Spring Boot also, like @GetMapping, @PostMapping, @PutMapping, and @DeleteMapping. Each of these annotations maps an HTTP request (GET, POST, PUT, DELETE) to the Java method defined below it. This allows the method to handle that type of HTTP request and return a response — typically as JSON in a REST API.
+14- We have mapping annotations in Spring Boot also, like @GetMapping, @PostMapping, @PutMapping, and @DeleteMapping. Each of these annotations maps an HTTP request (GET, POST, PUT, DELETE) to the Java method defined below it. This allows the method to handle that type of HTTP request and return a response — typically as JSON in a REST API.
 
 Abstract Notes and Concepts:
 
@@ -46,3 +48,15 @@ Abstract Notes and Concepts:
 6- The most popular logging frameworks for debugging and monitoring my Java backend projects are SLF4J, Log4j, and Logback. We need these logging frameworks to track behavior, catch errors, and maintain visibility into our application — especially in production where println() just doesn’t cut it. Because in production, we don’t care about debug prints — but we need errors, and println() can't filter "debug" vs "critical error" logs. Also println() is synchronous which might blocks our app, while logging frameworks on the other hand use async logging (non-blocking).
 
 7- Postman is a powerful tool used in backend development to test, debug, and document REST APIs. It allows developers to send HTTP requests (GET, POST, PUT, DELETE, etc.) to backend endpoints and view responses directly, without needing a frontend client. Postman simplifies verifying API functionality, troubleshooting issues, automating tests, and sharing API collections with the team, making backend development and collaboration faster and more efficient.
+
+9- With Spring Boot apps, drivers are needed only when our application needs to interact with something external, like a database.
+For example, if we choose to use an external database like MySQL, and during the initialization of our Spring Boot app (via Spring Initializr) we don’t include the MySQL driver dependency, the app will throw errors at runtime and won’t function properly.
+That’s because without MySQL’s driver, the JVM can’t "see" or communicate with the database — it doesn't know how to speak the database’s language. It’s just like plugging in a keyboard but not installing its driver: the operating system won’t recognize the keyboard, and we won’t be able to type.
+
+10- A driver is a piece of software (a library) that acts as a bridge between two systems that don't speak the same language.
+In the case of a Spring Boot application, a driver allows the app to communicate with an external system like a database (e.g., MySQL, PostgreSQL). Similarly, in an operating system, a keyboard driver enables the OS to understand and respond to signals from the physical keyboard.
+
+11- We don't need the driver for things that are already part of the Java standard library, fully handled within the JVM itself, or are just part of your own internal code.
+
+12- Without an API, we can't interact properly with the server or database. For example, if we don’t define any endpoints in our Spring Boot application, the server won’t know how to handle incoming requests. So, when we try to access a URL in the browser or make a request, the server responds with the Whitelabel Error Page, because there’s no matching route or logic to handle that request.
+That’s why we need to create an API with clearly defined endpoints, so the server knows how to respond to different types of requests (GET, POST, etc.).
