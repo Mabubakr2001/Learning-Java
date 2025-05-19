@@ -74,3 +74,7 @@ In the case of a Spring Boot application, a driver allows the app to communicate
 
 12- Without an API, we can't interact properly with the server or database. For example, if we don’t define any endpoints in our Spring Boot application, the server won’t know how to handle incoming requests. So, when we try to access a URL in the browser or make a request, the server responds with the Whitelabel Error Page, because there’s no matching route or logic to handle that request.
 That’s why we need to create an API with clearly defined endpoints, so the server knows how to respond to different types of requests (GET, POST, etc.).
+
+13- SSR (Server-Side Rendering) is when the HTML is generated on the server and sent to the client already rendered. The server does all the rendering work, and the browser just displays the final result. Example: Your Spring Boot backend returns a fully built HTML page (like from a Thymeleaf or JSP template), so the user sees content immediately.
+
+14- CSR (Client-Side Rendering) is when the backend sends raw data (usually JSON), and the frontend app (like React or Angular) builds the UI in the user's browser. Example: Your Spring Boot backend returns a JSON object like { name: "John", age: 30 }, and your frontend (React, etc.) uses that to build and render the UI.
