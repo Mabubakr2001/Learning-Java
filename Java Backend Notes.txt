@@ -32,6 +32,20 @@ The choice between .jar and .war is defined in the pom.xml via the <packaging> t
 
 14- We have mapping annotations in Spring Boot also, like @GetMapping, @PostMapping, @PutMapping, and @DeleteMapping. Each of these annotations maps an HTTP request (GET, POST, PUT, DELETE) to the Java method defined below it. This allows the method to handle that type of HTTP request and return a response — typically as JSON in a REST API.
 
+Spring MVC:-
+
+15- Spring MVC, is a framework for building web apps. It gives us all the tools we need to handle HTTP requests, generate web pages, and return data to clients. It's part of the larget Spring ecosystem and Spring Boot makes it easy to use.
+
+16- MVC stands for Model View Controller, which is a popular design pattern for organizing code.
+
+17- In Spring MVC (MVC = Model View Controller), we have three main components. Model, View, and Controller.
+   
+	- Model handles the data and business logic.
+	- View is what the user sees.
+	- Controller is the middleman. It takes a request, processes it, and decides what response to send back.
+
+18- When the user enters the URL "example.com/hello" in the browser, the browser sends an HTTP request to the /hello endpoint (path), then Spring Boot (through Spring MVC) receives the request and passes it to a controller which listening for requests to the /hello endpoint, so this method gets called by its controller, and that might talk to a database and fetch some data, then it returns a response, and boom, the JSON object or an HTML page is retrieved by the client.
+
 Abstract Notes and Concepts:
 
 1- REST is an architectural style for designing networked applications. It defines a set of rules and conventions for building and interacting with web services over HTTP. In REST, everything is a resource (like /users or /products), and each resource is accessed by the URL that locates this resource from the server, that's why it's called Uniform Resource Locater.
