@@ -46,6 +46,13 @@ Spring MVC:-
 
 18- When the user enters the URL "example.com/hello" in the browser, the browser sends an HTTP request to the /hello endpoint (path), then Spring Boot (through Spring MVC) receives the request and passes it to a controller which listening for requests to the /hello endpoint, so this method gets called by its controller, and that might talk to a database and fetch some data, then it returns a response, and boom, the JSON object or an HTML page is retrieved by the client.
 
+19- JDBC (Java Database Connectivity) is a low-level Java API that allows Java applications to connect to relational databases (like MySQL, PostgreSQL, Oracle). It sends SQL queries to the database, retrieves results from the database, and manages connections, statements, and result sets. It gives us full control over SQL, and it's lightweight and simple for small projects.
+
+20- JPA (Java Persistence API) is a Java specification (not a tool or framework) that defines how to map Java objects (entities) to database tables. It abstracts away SQL and replaces it with object-based operations. It’s used in enterprise-grade Java apps.
+Think of JPA as the interface.
+
+21- Hibernate (JPA Implementation) is the most popular implementation of JPA. It’s a library that uses JPA under the hood and provides powerful ORM (Object-Relational Mapping) features. it maps Java classes to database tables, lets you query with Java (using JPQL/HQL or method-based queries), manages the database connection and transactions, and handles complex relationships (like OneToMany, ManyToMany). It gives us much cleaner and maintainable code, no manual SQL for most operations, and it also supports automatic schema generation, lazy loading, caching.
+
 Abstract Notes and Concepts:
 
 1- REST is an architectural style for designing networked applications. It defines a set of rules and conventions for building and interacting with web services over HTTP. In REST, everything is a resource (like /users or /products), and each resource is accessed by the URL that locates this resource from the server, that's why it's called Uniform Resource Locater.
